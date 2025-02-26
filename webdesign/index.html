@@ -1,0 +1,940 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Dimension by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-gem"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>WELCOME</h1>
+								<p>Weave stories with voice, guiding listeners to escape anxiety and find serenity in the depths of the night.</p>
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#intro">Intro</a></li>
+								<li><a href="#work">Work</a></li>
+								<li><a href="#about">About</a></li>
+								<li><a href="#contact">Contact</a></li>
+							</ul>
+						</nav>
+					</header>
+
+
+			<div id="main">
+
+				
+
+				<!-- Intro -->
+					<article id="intro">
+						<h2 class="major">Intro</h2>
+						<span class="image main"><img src="images/pic01.jpg" /></span>
+					<div class="content-intro">
+	  					<div class="text-block">
+							<h2>
+		  						<span>I'm a <span style="color: #ab98ff;">weaver</span></span>
+		  						<span><br>spinning sonic webs in the liminal space</span>
+		  						<span>between <br>reality and reverie.</span>
+							</h2>
+							<div class="description">
+								<p><span>By day, an ordinary HKBU COMM students</span>
+								  <span><br>By night, metamorphosed into a Oneiropomp: <br>Dream conductor of the Aural Théâtre</span>
+								  <span><br>Where midnight sirens guide insomniac souls through velvet-dark parables
+									  <br>And kitsune muse combs out the knots of urban anxiety <br>With her nine-tailed lexicon of whispered solace.</span></p>
+						  	</div>
+	  					</div>
+	  					
+						<div class="project-block">
+							<h2>MY RECENT PROJECT</h2>
+						</div>
+	  				</div>
+				
+
+				  <style>
+					/* 主容器优化 */
+					.display {
+					  display: flex;
+					  justify-content: center; /* 改为居中布局 */
+					  gap: 30px; /* 增加间距 */
+					  padding: 20px;
+					  max-width: 1200px; /* 添加最大宽度限制 */
+					  margin: 0 auto; /* 居中显示 */
+					}
+					
+					/* 统一图片容器样式 */
+					.display-item {
+					  flex: 0 1 500px; /* 弹性基准值设为500px */
+					  position: relative;
+					  cursor: pointer;
+					  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+					  border-radius: 12px;
+					  overflow: hidden; /* 防止放大时溢出 */
+					  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+					  aspect-ratio: 3/4; /* 统一宽高比 */
+					}
+					
+					/* 图片样式优化 */
+					.display-item img {
+					  width: 100%;
+					  height: 100%;
+					  object-fit: cover; /* 保持比例填充容器 */
+					  transition: transform 0.4s ease;
+					  vertical-align: bottom; /* 消除图片底部间隙 */
+					}
+					
+					/* 标题样式增强 */
+					.caption {
+					  position: absolute;
+					  bottom: 0;
+					  left: 0;
+					  right: 0;
+					  padding: 20px;
+					  background: linear-gradient(0deg, rgba(0,0,0,0.8) 20%, transparent);
+					  color: white;
+					  text-align: center;
+					  opacity: 0.9;
+					  transition: opacity 0.3s ease;
+					}
+					
+					/* 点击放大效果优化 */
+					.zoomed {
+					  transform: scale(1.08);
+					  z-index: 100; /* 提升层级 */
+					  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+					}
+					
+					/* 悬停交互增强 */
+					.display-item:hover {
+					  transform: translateY(-5px);
+					  box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+					}
+					
+					.display-item:hover .caption {
+					  opacity: 1;
+					}
+					
+					/* 响应式调整 */
+					@media (max-width: 768px) {
+					  .display {
+						flex-direction: column;
+						align-items: center;
+					  }
+					  
+					  .display-item {
+						flex-basis: 80%;
+						max-width: 400px;
+					  }
+					}
+					</style>
+					
+					<div class="display">
+					  <div class="display-item" onclick="toggleZoom(this)">
+						<img src="images/display1.jpg" alt="夜间叙事项目">
+						<div class="caption">
+						  <h3>「Nyctophilic Narrations」</h3>
+						</div>
+					  </div>
+					
+					  <div class="display-item" onclick="toggleZoom(this)">
+						<img src="images/display2.jpg" alt="狐狸疗法项目">
+						<div class="caption">
+						  <h3>「Kitsune Therapeutices」</h3>
+						</div>
+					  </div>
+					</div>
+				</article>
+
+					<script>
+					// 优化后的交互函数
+					function toggleZoom(element) {
+					  const allItems = document.querySelectorAll('.display-item');
+					  
+					  allItems.forEach(item => {
+						if (item !== element && item.classList.contains('zoomed')) {
+						  item.classList.remove('zoomed');
+						}
+					  });
+					
+					  element.classList.toggle('zoomed');
+					  
+					  // 添加点击外部关闭功能
+					  const clickHandler = (e) => {
+						if (!element.contains(e.target)) {
+						  element.classList.remove('zoomed');
+						  document.removeEventListener('click', clickHandler);
+						}
+					  };
+					  
+					  if (element.classList.contains('zoomed')) {
+						document.addEventListener('click', clickHandler);
+					  }
+					}
+					</script>
+
+
+					
+	
+	<style>
+		.mic-icon.recording {
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  margin-left: 0 !important;
+  filter: drop-shadow(0 0 8px rgba(254,139,126,0.3));
+  transition: transform 0.3s ease;
+}
+		
+		/* 视频对称布局 */
+		.video-container {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: space-between;
+		  gap: 30px;
+		  margin-top: 60px;
+		}
+		
+		.video-item {
+		  flex: 0 1 48%;
+		  min-width: 300px;
+		  cursor: pointer;
+		  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		}
+		
+		/* 互动效果 */
+		.video-item:hover {
+		  transform: translateY(-5px);
+		}
+		
+		.video-item:active {
+		  transform: scale(0.98);
+		}
+		
+		.video-item video {
+		  width: 100%;
+		  height: auto;
+		  border-radius: 12px;
+		  box-shadow: 0 8px 30px rgba(254, 139, 126, 0.15);
+		  transition: box-shadow 0.3s ease;
+		}
+		
+		.video-item:hover video {
+		  box-shadow: 0 12px 40px rgba(254, 139, 126, 0.25);
+		}
+		
+		/* 内容排版 */
+		.content-header {
+		  margin: 20px 0;
+		  padding-left: 15px;
+		  border-left: 3px solid var(--mic-color, #fe8b7e);
+		}
+		
+		/* 响应式设计 */
+		@media (max-width: 768px) {
+		  .video-container {
+			flex-direction: column;
+		  }
+		  
+		  .video-item {
+			flex-basis: 100%;
+		  }
+		  
+		  .mic-icon {
+			top: -20px;
+			scale: 0.8;
+		  }
+		}
+		/* 视频对称布局 */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  margin-top: 80px;
+}
+
+.video-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 3D翻转效果 */
+.video-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg);
+}
+
+.video-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.video-card:hover::before {
+  border-color: #fe8b7e;
+}
+
+/* 视频容器 */
+.media-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+}
+
+.media-container video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* 内容面板 */
+.content-panel {
+  padding: 24px;
+  background: linear-gradient(145deg, rgba(30,30,30,0.95), rgba(45,45,45,0.95));
+  backdrop-filter: blur(8px);
+  border-radius: 0 0 12px 12px;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+    margin-top: 60px;
+    gap: 30px;
+  }
+  
+  .content-panel {
+    padding: 18px;
+  }
+}
+
+/* 点击波纹效果 */
+.video-card::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle at center, 
+    rgba(254,139,126,0.3) 0%, 
+    transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-card:active::after {
+  opacity: 1;
+}
+		</style>
+		
+		<article id="work">
+		  <h2 class="major">Work</h2>
+		
+		  <!-- 麦克风 -->
+		  <link rel="stylesheet" href="assets/css/mic.css"/>
+		  <div class="mic-icon recording" style="--mic-color: #fe8b7e">
+			<div class="handle"></div>
+		  </div>
+		
+		  <div class="video-container">
+			<!-- 视频1 -->
+			<div class="video-item">
+			  <div class="video1">
+				<video poster="images/work1.jpg" controls>
+				  <source src="videos/video1.mp4" type="video/mp4">
+				</video>
+			  </div>
+			  <header class="content-header">
+				<h1 class="title-lg">「Nyctophilic Narrations」</h1>
+				<h2 class="title-md">Genesis of the Chronicles</h2>
+			  </header>
+			  <div class="text-body">
+				<p>During a witching-hour recording session, the silhouette of an ancient scholar tree merged with childhood memories of Grandma's "Mountain Djinn Lantern" folktale...
+					Discovering that epinephrine surges from controlled fear neutralize amygdala hyperactivity—thus born these series:
+					A psychosomatic paradox where goosebumps become neural release valves.</p>
+			  </div>
+			</div>
+		
+			<!-- 视频2 -->
+			<div class="video-item">
+			  <div class="video2">
+				<video poster="images/work2.jpg" controls>
+				  <source src="videos/video2.mp4" type="video/m4">
+				</video>
+			  </div>
+			  <header class="content-header">
+				<h1 class="title-lg">「Nocturnal Reveries」</h1>
+				<h2 class="title-md">Genesis of the Chronicles</h2>
+			  </header>
+			  <div class="text-body">
+				<p>While sketching the Silk Road frescoes, the nine-tailed vulpecula's cloud patterns began humming at 174Hz—birthing the Oneiric Zephyr chronicles through ear canal caresses in hypnagogic states.
+					Alchemizing Suzu bell harmonics with dew collects into tactile-tingling phonetics, crafting the ASMR equivalent of digitally caressing the Kitsune's tail.</p>
+			  </div>
+			</div>
+		  </div>
+		</article>
+		
+		<script>
+		// 添加点击互动
+		document.querySelectorAll('.video-item').forEach(item => {
+		  item.addEventListener('click', function() {
+			// 移除其他项目的激活状态
+			document.querySelectorAll('.video-item').forEach(v => 
+			  v.classList.remove('active')
+			);
+			
+			// 添加点击反馈
+			this.classList.add('active');
+			
+			// 自动播放视频（根据浏览器策略可能需要用户交互）
+			const video = this.querySelector('video');
+			if(video.paused) {
+			  video.play();
+			} else {
+			  video.pause();
+			}
+		  });
+		});
+		</script>
+
+
+						<!-- About -->
+						<article id="about">
+							<style>
+								  
+        		@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+				.bio-content {
+					font-family: 'Roboto', sans-serif;
+					font-weight: 400;
+					line-height: 1.7;
+					color: #ffffff;
+					}
+
+				.bio-content p {
+					font-size: 1.1rem;
+					margin-bottom: 1.5rem;
+					letter-spacing: 0.02em;
+					}
+				.bio-content .lead {
+            		font-weight: 500;
+            		font-size: 1.2rem;
+            		color: #dd8787;
+        			}
+
+        		.bio-content .highlight {
+            		font-weight: 700;
+            		color: #dd8787;
+            		font-family: 'Noto Serif SC', serif;
+        			}
+
+								/* 现代滚动动画系统 */
+								.scroll-reveal {
+									--reveal-delay: 100ms;
+									opacity: 0;
+									transform: translateY(2rem);
+									transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+								}
+						
+								.scroll-reveal.active {
+									opacity: 1;
+									transform: translateY(0);
+								}
+						
+								/* 内容布局 */
+								.about-content {
+									display: grid;
+									grid-template-columns: 1fr 1.2fr;
+									gap: 4rem;
+									align-items: center;
+									padding: 2rem 0;
+								}
+						
+								.profile-image {
+									position: relative;
+									border-radius: 1.5rem;
+									overflow: hidden;
+									box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+								}
+						
+								.profile-image img {
+									width: 100%;
+									height: auto;
+									aspect-ratio: 3/4;
+									object-fit: cover;
+									transition: transform 0.3s ease;
+								}
+						
+								.bio-content {
+									display: flex;
+									flex-direction: column;
+									gap: 1.5rem;
+								}
+						
+								/* 响应式设计 */
+								@media (max-width: 768px) {
+									.about-content {
+										grid-template-columns: 1fr;
+										gap: 2rem;
+									}
+						
+									.profile-image {
+										max-width: 400px;
+										margin: 0 auto;
+									}
+								}
+							</style>
+						
+							<h2 class="major scroll-reveal">About</h2>
+						
+							<div class="about-content">
+								<!-- 个人照片 -->
+								<div class="profile-image scroll-reveal" style="--reveal-delay: 200ms">
+									<img src="images/photo.JPG" alt="YANG Tianle Profile Photo" loading="lazy">
+								</div>
+						
+								<!-- 个人简介 -->
+								<div class="bio-content">
+									<h1 class="scroll-reveal" style="--reveal-delay: 300ms">YANG Tianle</h1>
+									
+									<div class="scroll-reveal" style="--reveal-delay: 400ms">
+										<p class="lead" style="font-size: small;">MA Master in Communication</p>
+										<p class="highlight" style="font-size: small;">Hong Kong Baptist University</p>
+									</div>
+						
+									<div class="scroll-reveal" style="--reveal-delay: 500ms">
+										<p>Graduated from Shaanxi Normal University with a Bachelor's degree in Broadcasting and Hosting Arts, possessing extensive voice acting experience across radio dramas, audiobooks, and related audio productions.</p>
+										<p>Current research focuses on digital media narrative strategies and cross-platform content distribution optimization.</p>
+									</div>
+								</div>
+							</div>
+						
+							<script>
+								// 增强型滚动观察器
+								const createScrollReveal = () => {
+									const observer = new IntersectionObserver((entries) => {
+										entries.forEach(entry => {
+											const element = entry.target;
+											const delay = parseInt(element.style.getPropertyValue('--reveal-delay')) || 0;
+											
+											if (entry.isIntersecting) {
+												setTimeout(() => {
+													element.classList.add('active');
+												}, delay);
+											}
+										});
+									}, { 
+										threshold: 0.1,
+										rootMargin: '0px 0px -50px 0px' 
+									});
+						
+									document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+								}
+						
+								// 窗口加载后初始化
+								window.addEventListener('load', () => {
+									createScrollReveal();
+									
+									const img = new Image();
+									img.src = document.querySelector('.profile-image img').src;
+								});
+							</script>
+						</article>
+
+						<!-- Contact -->
+						<article id="contact">
+						<style>
+        				@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap');
+        
+       
+        				#contact .form-header {
+            			font-family: 'Roboto', sans-serif;
+            			font-weight: 500;
+            			letter-spacing: 0.03em;
+            			color: #ffffff;
+            			margin-bottom: 1.5rem;
+        				}
+
+        				#contact h2[style*="font-size: small"] {
+            			font-family: 'Roboto', sans-serif;
+            			font-weight: 400;
+            			line-height: 1.6;
+            			color: #ffffff;
+            			margin: 1rem 0;
+        				}
+
+						/* 悬停动画 */
+						.icons a {
+   						 transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+						}
+
+						.icons a:hover {
+    					transform: translateY(-3px);
+    					color: #4f46e5; /* 强调色 */
+						}
+
+
+						.icons a:active {
+    					transform: scale(0.95);
+						}
+
+    					</style>
+
+							<h2 class="major">Contact</h2>
+    							<div class="form-header">
+       					 			<h2 style="font-size: small;" align="center">Collaboration Intent Specification</h2>
+        							<h2 style="font-size: small;">Kindly delineate your partnership objectives through:</h2>
+        							<h2 style="font-size: small;">Project categorization (Voice Acting/ASMR Production/Sound Design)</h2>
+        							<h2 style="font-size: small;">Expected deliverables timeline</h2>
+        							<h2 style="font-size: small;">Budget range indication</h2>
+    							</div>
+							
+								<form method="post" action="#">
+									<div class="fields">
+										<div class="field half">
+											<label for="name">Name</label>
+											<input type="text" name="name" id="name" />
+										</div>
+										<div class="field half">
+											<label for="email">Email</label>
+											<input type="text" name="email" id="email" />
+										</div>
+										<div class="field">
+											<label for="message">Message</label>
+											<textarea name="message" id="message" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" class="primary" /></li>
+										<li><input type="reset" value="Reset" /></li>
+									</ul>
+								</form>
+							<ul class="icons">
+								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
+						</article>
+					
+
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">Elements</h2>
+
+								<section>
+									<h3 class="major">Text</h3>
+									<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+									This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+									This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+									<hr />
+									<h2>Heading Level 2</h2>
+									<h3>Heading Level 3</h3>
+									<h4>Heading Level 4</h4>
+									<h5>Heading Level 5</h5>
+									<h6>Heading Level 6</h6>
+									<hr />
+									<h4>Blockquote</h4>
+									<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+									<h4>Preformatted</h4>
+									<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+    print 'Iteration ' + i;
+    deck.shuffle();
+    i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+								</section>
+
+								<section>
+									<h3 class="major">Lists</h3>
+
+									<h4>Unordered</h4>
+									<ul>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Alternate</h4>
+									<ul class="alt">
+										<li>Dolor pulvinar etiam.</li>
+										<li>Sagittis adipiscing.</li>
+										<li>Felis enim feugiat.</li>
+									</ul>
+
+									<h4>Ordered</h4>
+									<ol>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis viverra.</li>
+										<li>Felis enim feugiat.</li>
+										<li>Dolor pulvinar etiam.</li>
+										<li>Etiam vel felis lorem.</li>
+										<li>Felis enim et feugiat.</li>
+									</ol>
+									<h4>Icons</h4>
+									<ul class="icons">
+										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+
+									<h4>Actions</h4>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions stacked">
+										<li><a href="#" class="button primary">Default</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Table</h3>
+									<h4>Default</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+
+									<h4>Alternate</h4>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>Name</th>
+													<th>Description</th>
+													<th>Price</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Item One</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Two</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Three</td>
+													<td> Morbi faucibus arcu accumsan lorem.</td>
+													<td>29.99</td>
+												</tr>
+												<tr>
+													<td>Item Four</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>19.99</td>
+												</tr>
+												<tr>
+													<td>Item Five</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>29.99</td>
+												</tr>
+											</tbody>
+											<tfoot>
+												<tr>
+													<td colspan="2"></td>
+													<td>100.00</td>
+												</tr>
+											</tfoot>
+										</table>
+									</div>
+								</section>
+
+								<section>
+									<h3 class="major">Buttons</h3>
+									<ul class="actions">
+										<li><a href="#" class="button primary">Primary</a></li>
+										<li><a href="#" class="button">Default</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button">Default</a></li>
+										<li><a href="#" class="button small">Small</a></li>
+									</ul>
+									<ul class="actions">
+										<li><a href="#" class="button primary icon solid fa-download">Icon</a></li>
+										<li><a href="#" class="button icon solid fa-download">Icon</a></li>
+									</ul>
+									<ul class="actions">
+										<li><span class="button primary disabled">Disabled</span></li>
+										<li><span class="button disabled">Disabled</span></li>
+									</ul>
+								</section>
+
+								<section>
+									<h3 class="major">Form</h3>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="demo-name">Name</label>
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Jane Doe" />
+											</div>
+											<div class="field half">
+												<label for="demo-email">Email</label>
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="jane@untitled.tld" />
+											</div>
+											<div class="field">
+												<label for="demo-category">Category</label>
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">Manufacturing</option>
+													<option value="1">Shipping</option>
+													<option value="1">Administration</option>
+													<option value="1">Human Resources</option>
+												</select>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+												<label for="demo-priority-low">Low</label>
+											</div>
+											<div class="field half">
+												<input type="radio" id="demo-priority-high" name="demo-priority">
+												<label for="demo-priority-high">High</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Email me a copy</label>
+											</div>
+											<div class="field half">
+												<input type="checkbox" id="demo-human" name="demo-human" checked>
+												<label for="demo-human">Not a robot</label>
+											</div>
+											<div class="field">
+												<label for="demo-message">Message</label>
+												<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="primary" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+
+					<style>
+						/* Footer样式 */
+						.footer {
+							padding: 20px;
+							text-align: center;
+						}
+				
+						/* 图标容器 */
+						.icon-container {
+							display: inline-block;
+							padding: 8px; /* 控制圆弧边框大小 */
+							border-radius: 50%; /* 圆形边缘 */
+							background: #ffffff; /* 圆弧背景色 */
+							box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 可选阴影效果 */
+							transition: all 0.3s ease;
+						}
+				
+						/* 小红书图标样式 */
+						.xiaohongshu-icon {
+							width: 32px;
+							height: 32px;
+							border-radius: 50%; /* 图标自身圆弧 */
+							transition: transform 0.3s ease;
+						}
+				
+						/* 悬停效果 */
+						.icon-container:hover {
+							transform: scale(1.05);
+							background: #ffeded; /* 悬停时背景色变化 */
+						}
+						.icon-container:hover .xiaohongshu-icon {
+							transform: scale(1.1);
+						}
+					</style>
+					
+				<footer id="footer">
+				<div><p >@YANG Tianle&nbsp;<br>24406023​@life.hkbu.edu.hk</p></div>
+						<a href="https://www.xiaohongshu.com/user/profile/67a5ff0d000000000a03f712" target="_blank" rel="noopener noreferrer">
+							<img src="images/Rednote.jpg" width="2%" height="2%"
+							 alt="小红书主页" class="xiaohongshu-icon"></a><p>Follow Me</p>
+				</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
